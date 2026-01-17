@@ -3,7 +3,7 @@ import { Mail, Github, Linkedin, MoreHorizontal } from 'lucide-react';
 
 const AboutAndSocials = () => {
   // Mock contribution data for the heatmap visualization
-  const contributionGrid = Array.from({ length: 52 }, () => 
+  const contributionGrid = Array.from({ length: 52 }, () =>
     Array.from({ length: 7 }, () => Math.floor(Math.random() * 5))
   );
 
@@ -58,9 +58,9 @@ const AboutAndSocials = () => {
             href="mailto:krvalencia06@gmail.com"
             className="w-fit flex items-center gap-1.5 px-3 py-[7px] bg-[#f5f5f5] hover:bg-[#e5e5e5] transition-colors duration-300 text-sm text-foreground font-medium border border-border cursor-pointer rounded-[9px] group overflow-hidden"
           >
-            <Mail 
-              size={18} 
-              className="translate-y-0 group-hover:animate-bounce transition-transform duration-300" 
+            <Mail
+              size={18}
+              className="translate-y-0 group-hover:animate-bounce transition-transform duration-300"
             />
             Send an email
           </a>
