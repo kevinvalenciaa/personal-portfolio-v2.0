@@ -58,16 +58,6 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col">
               <div className="relative aspect-[1.6/1] w-full overflow-hidden border border-border rounded-[9px] bg-muted mb-3 group cursor-pointer">
-                <div className="absolute top-2 left-2 z-10">
-                  <span className="text-[11px] text-muted-foreground bg-background/80 backdrop-blur-sm px-1.5 py-0.5 rounded-sm border border-border/50">
-                    {project.tag}
-                  </span>
-                </div>
-                {index === 0 && (
-                   <div className="absolute top-2 right-2 z-10 flex items-center justify-center p-1 bg-background/80 rounded-full border border-border/50">
-                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                   </div>
-                )}
                 <Image
                   src={project.image}
                   alt={project.title}
