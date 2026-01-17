@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Mail, Github, Twitter, Linkedin, BookOpen, ExternalLink, MoreHorizontal } from 'lucide-react';
+import { Mail, Github, Linkedin, MoreHorizontal } from 'lucide-react';
 
 const AboutAndSocials = () => {
   // Mock contribution data for the heatmap visualization
@@ -19,11 +19,8 @@ const AboutAndSocials = () => {
   };
 
   const socials = [
-    { name: 'GitHub', icon: <Github size={14} />, url: 'https://github.com/rinkitadhana' },
-    { name: 'Twitter', icon: <Twitter size={14} />, url: 'https://x.com/damnGruz' },
-    { name: 'LinkedIn', icon: <Linkedin size={14} />, url: 'https://www.linkedin.com/in/rinkitadhana' },
-    { name: 'Medium', icon: <BookOpen size={14} />, url: 'https://medium.com/@rinkitadhana', hideOnMobile: true },
-    { name: 'LeetCode', icon: <ExternalLink size={14} />, url: 'https://leetcode.com/rinkitadhana', hideOnMobile: true },
+    { name: 'GitHub', icon: <Github size={14} />, url: 'https://github.com/kevinvalenciaa' },
+    { name: 'LinkedIn', icon: <Linkedin size={14} />, url: 'https://www.linkedin.com/in/kevin-valenciaa/' },
   ];
 
   return (
@@ -32,7 +29,7 @@ const AboutAndSocials = () => {
         {/* Introduction Bio */}
         <div className="flex flex-col gap-4 text-[0.875rem] leading-[1.6] text-foreground">
           <p>
-            Hey, I&apos;m Rinkit, a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.
+            Hey, I&apos;m Kevin, a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.
           </p>
           <p>
             Tech stack isn&apos;t my concern, I&apos;m flexible with whatever the project needs, though I prefer modern frameworks and tools. I&apos;m always open for new opportunities to learn and grow.
@@ -42,20 +39,20 @@ const AboutAndSocials = () => {
         {/* Action Buttons */}
         <div className="flex pt-6 gap-2 select-none">
           <a
-            href="https://cal.com/rinkitadhana"
+            href="mailto:krvalencia06@gmail.com"
             className="w-fit flex items-center bg-[#404040] hover:bg-[#262626] transition-colors duration-300 gap-1.5 px-3 py-[7px] text-white text-sm font-medium cursor-pointer rounded-[9px] group overflow-hidden"
           >
             <div className="relative w-4 h-4 overflow-hidden">
-              <Calendar 
-                size={16} 
-                className="absolute inset-0 transition-transform duration-400 ease-out group-hover:-translate-y-6" 
+              <Mail
+                size={16}
+                className="absolute inset-0 transition-transform duration-400 ease-out group-hover:-translate-y-6"
               />
-              <Calendar 
-                size={16} 
-                className="absolute inset-0 translate-y-6 transition-transform duration-400 ease-out group-hover:translate-y-0" 
+              <Mail
+                size={16}
+                className="absolute inset-0 translate-y-6 transition-transform duration-400 ease-out group-hover:translate-y-0"
               />
             </div>
-            Book an intro call
+            Get in touch
           </a>
           <a
             href="mailto:krvalencia06@gmail.com"
@@ -76,7 +73,7 @@ const AboutAndSocials = () => {
           </h2>
           <div className="flex gap-[7px] items-center flex-wrap">
             {socials.map((social) => (
-              <div key={social.name} className={`relative inline-block ${social.hideOnMobile ? 'hidden sm:block' : ''}`}>
+              <div key={social.name} className="relative inline-block">
                 <a
                   href={social.url}
                   className="flex items-center px-2 py-1 bg-[#f5f5f5] hover:bg-[#e5e5e5] transition-colors duration-200 select-none rounded-[6px]"
