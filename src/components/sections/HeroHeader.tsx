@@ -74,7 +74,16 @@ const HeroHeader = () => {
       }
     });
 
-    return labels;
+    // Filter out months with insufficient weeks (not enough space for label)
+    const totalWeeks = weeks.length;
+    return labels.filter((label, idx) => {
+      if (idx === labels.length - 1) {
+        // Last label: only show if at least 2 weeks visible from this month
+        return totalWeeks - label.weekIndex >= 2;
+      }
+      const nextLabel = labels[idx + 1];
+      return nextLabel.weekIndex - label.weekIndex >= 3; // Need at least 3 weeks gap
+    });
   };
 
   React.useEffect(() => {

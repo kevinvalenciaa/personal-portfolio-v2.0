@@ -61,7 +61,7 @@ const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 bg-transparent border border-muted-foreground/30 text-muted-foreground text-[0.75rem] font-medium rounded-[6px] group-hover:border-foreground/50 group-hover:text-foreground transition-colors duration-300"
+                className="px-2.5 py-1 bg-transparent border border-muted-foreground/30 text-muted-foreground text-[0.75rem] font-medium rounded-[6px]"
               >
                 {tag}
               </span>
