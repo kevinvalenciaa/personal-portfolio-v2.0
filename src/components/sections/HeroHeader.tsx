@@ -21,6 +21,7 @@ const SubstackIcon = ({ size = 14 }: { size?: number }) => (
     <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
   </svg>
 );
+
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
 import { personalInfo } from '@/config/personal';
 
@@ -166,7 +167,7 @@ const HeroHeader = () => {
         <div className="relative p-3">
           <div className="flex items-stretch justify-between relative">
             <div className="flex items-end gap-3">
-              <div>
+              <div className="relative">
                 <div className="border border-border rounded-[12px] p-[4px] cursor-pointer hover:brightness-90 transition duration-300 bg-white">
                   <Image
                     alt="Profile"
@@ -176,6 +177,21 @@ const HeroHeader = () => {
                     src={personalInfo.profileImage}
                   />
                 </div>
+                <a
+                  href="https://cansbridgescholars.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm hover:opacity-80 transition-opacity"
+                  title="Cansbridge Scholar"
+                >
+                  <Image
+                    alt="Cansbridge Scholars"
+                    width={28}
+                    height={28}
+                    className="object-cover w-full h-full"
+                    src="/cansbridgescholars_logo.jpg"
+                  />
+                </a>
               </div>
 
               <div className="flex flex-col justify-end h-full py-1 select-none">

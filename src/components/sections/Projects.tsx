@@ -30,7 +30,7 @@ const projects: Project[] = [
   },
   {
     title: 'Keylia AI',
-    description: 'A 24/7 AI Agent that qualifies leads, and schedules showings for real estate agents.',
+    description: 'An automatedAI content creation platform for real estate agents.',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg3-14.avif',
     status: 'Live',
     tag: 'Home Feed',
