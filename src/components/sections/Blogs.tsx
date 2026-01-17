@@ -33,11 +33,11 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
-const BlogItem = ({ post }: { post: BlogPost }) => {
+const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
   return (
-    <a 
+    <a
       href={post.link}
-      className="group block py-4 border-b border-border last:border-0 transition-all duration-300"
+      className={`group block py-4 transition-all duration-300 ${!isLast ? "dashed-border-bottom" : ""}`}
     >
       <div className="flex flex-col gap-1.5">
         <div className="flex items-start justify-between">
@@ -76,27 +76,27 @@ const BlogItem = ({ post }: { post: BlogPost }) => {
 const BlogsSection = () => {
   return (
     <section className="relative z-50 bg-background">
-      <div className="container py-8">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <h2 className="text-[1.125rem] font-semibold text-title">Blogs</h2>
-          </div>
-          
-          <div className="flex flex-col">
-            {blogPosts.map((post, index) => (
-              <BlogItem key={index} post={post} />
-            ))}
-          </div>
-
-          <div className="flex justify-center pt-4">
-            <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
-              View All
-              <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
-          </div>
+      <div className="relative p-3">
+        <h2 className="text-lg font-semibold text-title select-none">Blogs</h2>
+      </div>
+      <div className="dashed-separator"></div>
+      <div className="relative p-3">
+        <div className="flex flex-col">
+          {blogPosts.map((post, index) => (
+            <BlogItem key={index} post={post} isLast={index === blogPosts.length - 1} />
+          ))}
         </div>
       </div>
-      <div className="w-full h-px bg-border"></div>
+      <div className="dashed-separator"></div>
+      <div className="relative p-3">
+        <div className="flex justify-center py-2">
+          <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
+            View All
+            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+        </div>
+      </div>
+      <div className="dashed-separator"></div>
     </section>
   );
 };
