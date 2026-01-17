@@ -170,7 +170,7 @@
 
   .dot-grid {
     background-image: radial-gradient(#b5b5b5 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 12px 12px;
   }
 
   .diagonal-lines {
@@ -187,7 +187,7 @@
 @layer utilities {
   .bg-dot-grid {
     background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 12px 12px;
   }
 
   /* Dashed border container - vertical lines at page edges and content edges */

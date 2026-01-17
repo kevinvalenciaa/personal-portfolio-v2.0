@@ -3,7 +3,7 @@ import Experiences from "@/components/sections/Experiences";
 import Projects from "@/components/sections/Projects";
 import BlogsSection from "@/components/sections/Blogs";
 import SkillsAndSponsors from "@/components/sections/SkillsAndSponsors";
-import NewsletterFooter from "@/components/sections/NewsletterFooter";
+import Footer from "@/components/sections/NewsletterFooter";
 
 export default function Home() {
   return (
@@ -13,9 +13,9 @@ export default function Home() {
         <HeroHeader />
         <Experiences />
         <Projects />
-        <BlogsSection />
         <SkillsAndSponsors />
-        <NewsletterFooter />
+        <BlogsSection />
+        <Footer />
       </div>
     </main>
   );

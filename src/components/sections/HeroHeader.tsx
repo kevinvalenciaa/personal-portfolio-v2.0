@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Mail, Calendar, Github, Linkedin, BookOpen, Code, Moon, Eye, MousePointer2, FileText } from 'lucide-react';
+import { Mail, Calendar, Github, Linkedin, BookOpen, Code, FileText } from 'lucide-react';
 
 const XIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -56,10 +56,7 @@ const HeroHeader = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between h-full py-1 select-none">
-                <div className="mt-1 cursor-pointer w-fit group">
-                  <MousePointer2 className="size-3 text-muted-foreground rotate-[135deg] group-hover:text-foreground transition-all duration-300" />
-                </div>
+              <div className="flex flex-col justify-end h-full py-1 select-none">
                 <div>
                   <h1 className="text-[1.55rem] font-bold leading-[1.08] text-title relative inline-block">
                     Kevin Valencia
@@ -71,19 +68,6 @@ const HeroHeader = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-end justify-between py-1">
-              <button
-                className="p-1.5 rounded-[6px] hover:bg-secondary border border-transparent hover:border-border transition-colors duration-300 text-muted-foreground"
-                aria-label="Switch theme"
-              >
-                <Moon size={16} />
-              </button>
-
-              <div className="flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground select-none transition-all duration-300">
-                <Eye size={17} />
-                <span className="text-xs sm:text-sm tabular-nums">1.7k</span>
-              </div>
-            </div>
           </div>
         </div>
         <div className="dashed-separator"></div>
