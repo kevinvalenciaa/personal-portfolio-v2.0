@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     title: 'PostOpCare',
     description: 'Healthcare RAG system that delivers personalized post-surgery recovery guidance.',
-    image: '/SCR-20260117-mrjj.jpeg',
+    image: '/SCR-20260117-mtlb.jpeg',
     status: 'Building',
     tag: 'Coming Soon',
     link: 'https://github.com/kevinvalenciaa/postopcare-ai',
@@ -57,14 +57,26 @@ export default function Projects() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-[8px]">
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col">
-              <div className="relative aspect-[1.6/1] w-full overflow-hidden border border-border rounded-[9px] bg-muted mb-3 group cursor-pointer">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`relative aspect-[1.6/1] w-full overflow-hidden border border-border rounded-[9px] bg-muted mb-3 group ${project.link !== '#' ? 'cursor-pointer' : 'pointer-events-none'}`}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+                {project.link !== '#' && (
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-[8px] flex items-center gap-1 text-[0.8125rem] font-medium text-foreground">
+                      View Project <ArrowUpRight className="size-3" />
+                    </div>
+                  </div>
+                )}
+              </a>
 
               <div className="flex flex-col gap-1 px-0.5">
                 <div className="flex items-center justify-between">
@@ -85,14 +97,16 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 mt-1 text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors group/link w-fit"
-                >
-                  View Project <ArrowUpRight className="size-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                </a>
+                {project.link !== '#' && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 mt-1 text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors group/link w-fit"
+                  >
+                    View Project <ArrowUpRight className="size-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                  </a>
+                )}
               </div>
             </div>
           ))}
