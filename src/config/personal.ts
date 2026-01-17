@@ -4,7 +4,7 @@ export const personalInfo = {
   email: 'krvalencia06@gmail.com',
   calLink: 'https://cal.com/kevin-valencia-3utkek/15min',
   resumePath: '/resume.pdf',
-  profileImage: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_1.png',
+  profileImage: '/5Mzl_Jju_400x400.jpg',
   bio: [
     "Hey! I'm Kevin, a Toronto-based CS student at Queen's University focused on AI and obsessed with building full-stack AI products. I absolutely love to turn ideas from 0 to 1, and I highly prioritize shipping fast, iterating faster, and scaling what works.",
     "Currently, I'm a software engineer at Clover Labs, while building a startup in the GPU infrastructure space.",
