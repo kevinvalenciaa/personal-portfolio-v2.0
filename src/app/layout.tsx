@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   title: "Kevin Valencia | Engineer",
   description: "Full stack developer who loves building clean, modern websites and apps.",
   icons: {
-    icon: "/favicon-portfolio.webp",
+    icon: "/favicon-portfolio.png",
+    apple: "/favicon-portfolio.png",
   },
 };
 
