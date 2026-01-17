@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+const TRUSTED_ORIGIN = process.env.NEXT_PUBLIC_PARENT_ORIGIN || "https://orchids.dev";
+
 type ReporterProps = {
   /*  ⎯⎯ props are only provided on the global-error page ⎯⎯ */
   error?: Error & { digest?: string };
@@ -17,7 +19,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
     const inIframe = window.parent !== window;
     if (!inIframe) return;
 
-    const send = (payload: unknown) => window.parent.postMessage(payload, "*");
+    const send = (payload: unknown) => window.parent.postMessage(payload, TRUSTED_ORIGIN);
 
     const onError = (e: ErrorEvent) =>
       send({
@@ -87,7 +89,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         timestamp: Date.now(),
         userAgent: navigator.userAgent,
       },
-      "*"
+      TRUSTED_ORIGIN
     );
   }, [error]);
 

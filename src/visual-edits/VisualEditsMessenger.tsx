@@ -3,6 +3,8 @@
 
 import { useEffect, useState, useRef } from "react";
 
+const TRUSTED_ORIGIN = process.env.NEXT_PUBLIC_PARENT_ORIGIN || "https://orchids.dev";
+
 export const CHANNEL = "ORCHIDS_HOVER_v1" as const;
 const VISUAL_EDIT_MODE_KEY = "orchids_visual_edit_mode" as const;
 const FOCUSED_ELEMENT_KEY = "orchids_focused_element" as const;
@@ -18,7 +20,7 @@ const postMessageDedup = (data: any) => {
   } catch {
     // if stringify fails, fall through
   }
-  window.parent.postMessage(data, "*");
+  window.parent.postMessage(data, TRUSTED_ORIGIN);
 };
 
 export type ParentToChild =
@@ -467,13 +469,13 @@ export default function HoverReceiver() {
       // This will sync the parent's state with our restored state
       window.parent.postMessage(
         { type: CHANNEL, msg: "VISUAL_EDIT_MODE_ACK", active: true },
-        "*"
+        TRUSTED_ORIGIN
       );
 
       // Also send a special message to indicate this was restored from localStorage
       window.parent.postMessage(
         { type: CHANNEL, msg: "VISUAL_EDIT_MODE_RESTORED", active: true },
-        "*"
+        TRUSTED_ORIGIN
       );
 
       // Restore focused element after a short delay to ensure DOM is ready
@@ -1063,7 +1065,7 @@ export default function HoverReceiver() {
             width: Math.round(newWidth),
             height: Math.round(newHeight),
           },
-          "*"
+          TRUSTED_ORIGIN
         );
       }
     };
@@ -1166,7 +1168,7 @@ export default function HoverReceiver() {
           }
         }
 
-        window.parent.postMessage(msg, "*");
+        window.parent.postMessage(msg, TRUSTED_ORIGIN);
       }
 
       setIsResizing(false);
@@ -1836,7 +1838,7 @@ export default function HoverReceiver() {
         // Send acknowledgement back to parent so it knows we received the mode change
         window.parent.postMessage(
           { type: CHANNEL, msg: "VISUAL_EDIT_MODE_ACK", active: newMode },
-          "*"
+          TRUSTED_ORIGIN
         );
 
         if (!newMode) {

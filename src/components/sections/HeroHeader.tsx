@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Mail, Calendar, Github, Linkedin, BookOpen, Code, FileText } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import { personalInfo } from '@/config/personal';
 
 const XIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -154,7 +155,7 @@ const HeroHeader = () => {
                     width={90}
                     height={90}
                     className="rounded-[8px] select-none object-cover"
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_1.png"
+                    src={personalInfo.profileImage}
                   />
                 </div>
               </div>
@@ -162,10 +163,10 @@ const HeroHeader = () => {
               <div className="flex flex-col justify-end h-full py-1 select-none">
                 <div>
                   <h1 className="text-[1.55rem] font-bold leading-[1.08] text-title relative inline-block">
-                    Kevin Valencia
+                    {personalInfo.name}
                   </h1>
                   <div className="mt-1">
-                    <span className="text-muted-foreground text-sm">Software Engineer @ Clover | CS @ Queen's University</span>
+                    <span className="text-muted-foreground text-sm">{personalInfo.title}</span>
                   </div>
                 </div>
               </div>
@@ -190,7 +191,7 @@ const HeroHeader = () => {
           <div className="flex pt-6 gap-2 select-none">
             <a
               className="w-fit flex items-center bg-[#404040] hover:bg-[#262626] transition-colors duration-300 gap-1.5 px-3 py-2 text-white text-sm font-medium cursor-pointer rounded-[9px] group overflow-hidden"
-              href="https://cal.com/kevin-valencia-3utkek/15min"
+              href={personalInfo.calLink}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -203,7 +204,7 @@ const HeroHeader = () => {
 
             <a
               className="w-fit flex items-center gap-1.5 px-3 py-2 bg-[#f5f5f5] hover:brightness-[0.97] transition-colors duration-300 text-sm text-foreground font-medium border border-border cursor-pointer rounded-[9px] group overflow-hidden"
-              href="mailto:krvalencia06@gmail.com"
+              href={`mailto:${personalInfo.email}`}
             >
               <div className="relative w-4 h-4 overflow-hidden">
                 <Mail className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-6" size={16} />
@@ -214,7 +215,7 @@ const HeroHeader = () => {
 
             <a
               className="w-fit flex items-center gap-1.5 px-3 py-2 bg-[#f5f5f5] hover:brightness-[0.97] transition-colors duration-300 text-sm text-foreground font-medium border border-border cursor-pointer rounded-[9px] group overflow-hidden"
-              href="/resume.pdf"
+              href={personalInfo.resumePath}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -231,11 +232,11 @@ const HeroHeader = () => {
               Here are my <span className="font-semibold text-black">socials</span>
             </h2>
             <div className="flex gap-2 items-center flex-wrap">
-              <SocialLink href="https://github.com/kevinvalenciaa" icon={<Github size={14} />} label="GitHub" />
-              <SocialLink href="https://x.com/kkevinvalencia" icon={<XIcon size={14} />} label="X" />
-              <SocialLink href="https://www.linkedin.com/in/kevin-valenciaa/" icon={<Linkedin size={14} />} label="LinkedIn" />
-              <SocialLink href="https://substack.com/@kevinvalencia" icon={<BookOpen size={14} />} label="Substack" />
-              <SocialLink href="https://leetcode.com/u/kvalencia06/" icon={<Code size={14} />} label="LeetCode" />
+              <SocialLink href={personalInfo.socials.github} icon={<Github size={14} />} label="GitHub" />
+              <SocialLink href={personalInfo.socials.x} icon={<XIcon size={14} />} label="X" />
+              <SocialLink href={personalInfo.socials.linkedin} icon={<Linkedin size={14} />} label="LinkedIn" />
+              <SocialLink href={personalInfo.socials.substack} icon={<BookOpen size={14} />} label="Substack" />
+              <SocialLink href={personalInfo.socials.leetcode} icon={<Code size={14} />} label="LeetCode" />
             </div>
           </div>
 

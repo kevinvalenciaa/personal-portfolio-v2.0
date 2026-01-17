@@ -25,6 +25,12 @@ import {
 } from 'react-icons/si';
 import { FaJava, FaDatabase } from 'react-icons/fa';
 
+const PineconeIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2L8.5 8.5L2 12l6.5 3.5L12 22l3.5-6.5L22 12l-6.5-3.5L12 2zm0 4.5L13.5 10l3.5 2-3.5 2L12 17.5 10.5 14 7 12l3.5-2L12 6.5z"/>
+  </svg>
+);
+
 interface Skill {
   name: string;
   icon?: React.ReactNode;
@@ -54,6 +60,7 @@ const frameworkSkills: Skill[] = [
   { name: 'Node.js', icon: <SiNodedotjs className="size-3" /> },
   { name: 'PostgreSQL', icon: <SiPostgresql className="size-3" /> },
   { name: 'Redis', icon: <SiRedis className="size-3" /> },
+  { name: 'Pinecone', icon: <PineconeIcon className="size-3" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="size-3" /> },
   { name: 'Express.js', icon: <SiExpress className="size-3" /> },
   { name: 'Tailwind', icon: <SiTailwindcss className="size-3" /> },
