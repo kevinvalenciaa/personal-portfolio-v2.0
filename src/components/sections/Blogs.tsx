@@ -11,26 +11,26 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
-    title: "My GSoC Journey: The 2-Month Sprint from Doubt to Done",
-    date: "Jun 2025",
-    claps: "336",
-    tags: ["GSOC", "Open Source"],
-    link: "#",
+    title: "Ikigai Project Thesis: Quillio",
+    date: "October 2025",
+    claps: "",
+    tags: ["Product", "AI", "Journalling", "Founders"],
+    link: "https://substack.com/home/post/p-177443136",
   },
-  {
-    title: "JWT Authentication APIs with TypeScript, Node.js, and MongoDB.",
-    date: "Feb 2025",
-    claps: "52",
-    tags: ["Authentication", "TypeScript", "MongoDB"],
-    link: "#",
-  },
-  {
-    title: "Docker with Node.js & Express.js — Basics.",
-    date: "Feb 2025",
-    claps: "20",
-    tags: ["Docker", "Node.js", "Express.js"],
-    link: "#",
-  },
+  // {
+  //   title: "JWT Authentication APIs with TypeScript, Node.js, and MongoDB.",
+  //   date: "Feb 2025",
+  //   claps: "52",
+  //   tags: ["Authentication", "TypeScript", "MongoDB"],
+  //   link: "#",
+  // },
+  // {
+  //   title: "Docker with Node.js & Express.js — Basics.",
+  //   date: "Feb 2025",
+  //   claps: "20",
+  //   tags: ["Docker", "Node.js", "Express.js"],
+  //   link: "#",
+  // },
 ];
 
 const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
