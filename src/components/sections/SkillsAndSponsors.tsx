@@ -74,7 +74,7 @@ const SkillsAndSponsors = () => {
   return (
     <section className="relative z-50 bg-background">
       <div className="relative p-3">
-        <h2 className="text-lg font-semibold text-title select-none">Skills & Technologies</h2>
+        <h2 className="text-lg font-semibold text-title select-none">My skills.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative p-3 py-6">

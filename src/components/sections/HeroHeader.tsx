@@ -87,7 +87,9 @@ const HeroHeader = () => {
           <div className="flex pt-6 gap-2 select-none">
             <a
               className="w-fit flex items-center bg-[#404040] hover:bg-[#262626] transition-colors duration-300 gap-1.5 px-3 py-2 text-white text-sm font-medium cursor-pointer rounded-[9px] group overflow-hidden"
-              href="https://cal.com/kevinvalencia"
+              href="https://cal.com/kevin-valencia-3utkek/15min"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="relative w-4 h-4 overflow-hidden">
                 <Calendar className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-6" size={16} />
@@ -181,6 +183,8 @@ const HeroHeader = () => {
 const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
   <a
     href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     className="flex items-center px-2 py-1 bg-[#f5f5f5] hover:bg-[#e5e5e5] transition-colors duration-200 select-none rounded-[6px] text-sm font-medium text-foreground"
   >
     <span className="flex items-center">{icon}</span>

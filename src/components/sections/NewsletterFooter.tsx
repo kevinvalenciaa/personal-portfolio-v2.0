@@ -56,7 +56,7 @@ export default function NewsletterFooter() {
       <div className="relative z-50 bg-background">
         <div className="relative p-8 flex flex-col items-center text-center">
           <h3 className="text-[18px] md:text-[20px] font-medium leading-[1.4] text-title tracking-tight mb-5">
-            Request an AI summary of Kevin
+            Request an AI summary of Kevin.
           </h3>
 
           <div className="flex items-center gap-6 mb-6">

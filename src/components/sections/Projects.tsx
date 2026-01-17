@@ -50,7 +50,7 @@ export default function Projects() {
   return (
     <section className="relative z-50 bg-background">
       <div className="relative p-3">
-        <h2 className="text-[1.125rem] font-semibold leading-[1.5] text-title select-none">Projects</h2>
+        <h2 className="text-[1.125rem] font-semibold leading-[1.5] text-title select-none">What I'm building.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative p-3 pt-4">
@@ -97,6 +97,8 @@ export default function Projects() {
 
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 mt-1 text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors group/link w-fit"
                 >
                   View Project <ArrowUpRight className="size-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
@@ -109,10 +111,10 @@ export default function Projects() {
       <div className="dashed-separator"></div>
       <div className="relative p-3">
         <div className="flex justify-center py-2">
-          <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
+          <a href="https://github.com/kevinvalenciaa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
             View All
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+          </a>
         </div>
       </div>
       <div className="dashed-separator"></div>

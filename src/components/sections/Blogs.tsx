@@ -37,6 +37,8 @@ const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
   return (
     <a
       href={post.link}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`group block py-4 lg:py-5 transition-all duration-300 ${!isLast ? "dashed-border-bottom" : ""}`}
     >
       <div className="flex flex-col gap-3">
@@ -76,7 +78,7 @@ const BlogsSection = () => {
     <section className="relative z-50 bg-background">
       <div className="dashed-separator"></div>
       <div className="relative p-3">
-        <h2 className="text-lg font-semibold text-title select-none">Blogs</h2>
+        <h2 className="text-lg font-semibold text-title select-none">Compound wins.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative px-4 md:px-5">
@@ -89,10 +91,10 @@ const BlogsSection = () => {
       <div className="dashed-separator"></div>
       <div className="relative p-3">
         <div className="flex justify-center py-2">
-          <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
+          <a href="https://substack.com/@kevinvalencia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
             View All
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+          </a>
         </div>
       </div>
       <div className="dashed-separator"></div>

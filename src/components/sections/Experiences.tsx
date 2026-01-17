@@ -21,46 +21,45 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: "exp-1",
-    company: "WhyNot?",
-    role: "Software Engineer",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_3.png",
-    duration: "Aug, 2025 - Present",
-    location: "Palo Alto, USA - Remote",
+    company: "Clover Labs",
+    role: "Software Engineer Intern",
+    logo: "/tryclover_logo.jpg",
+    duration: "January 2026 - Present",
+    location: "Toronto, Canada",
     isFullTime: true,
     description: [
-      "Owned the core presentation editor, driving major performance and reliability improvements",
-      "Designed and built core editor features like drag-and-drop, resize, and keyboard shortcuts end-to-end",
-      "Owned a foundational refactor, strengthening a critical codebase to enable safer and faster production",
-      "Drove major Drive page performance improvements, resolving bugs to deliver faster, reliable experiences",
+      "A portfolio of four verticalized ('leafs') AI growth agents.",
+      "On track to hit $50M ARR in 2026.",
+      "We're profitability obsessed, and proudly Canadian 🍁.",
     ],
     techStack: ["Next", "Tailwind", "TypeScript", "JavaScript", "Express", "PostgreSQL", "Docker"],
   },
-  {
-    id: "exp-2",
-    company: "GSoC",
-    role: "Full Stack Developer",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_4.png",
-    duration: "May, 2025 - Nov, 2025",
-    location: "USA - Remote",
-    description: [
-      "Contributed to large-scale open source infrastructure components.",
-      "Implemented responsive UI dashboards for monitoring system health.",
-    ],
-    techStack: ["React", "Go", "Kubernetes"],
-  },
-  {
-    id: "exp-3",
-    company: "OWASP",
-    role: "Open Source Contributor",
-    logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_5.png",
-    duration: "Feb, 2025 - May, 2025",
-    location: "USA - Remote",
-    description: [
-      "Developed security testing tools for web applications.",
-      "Improved documentation for cross-site scripting mitigation strategies.",
-    ],
-    techStack: ["Python", "Security", "Markdown"],
-  },
+  // {
+  //   id: "exp-2",
+  //   company: "GSoC",
+  //   role: "Full Stack Developer",
+  //   logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_4.png",
+  //   duration: "May, 2025 - Nov, 2025",
+  //   location: "USA - Remote",
+  //   description: [
+  //     "Contributed to large-scale open source infrastructure components.",
+  //     "Implemented responsive UI dashboards for monitoring system health.",
+  //   ],
+  //   techStack: ["React", "Go", "Kubernetes"],
+  // },
+  // {
+  //   id: "exp-3",
+  //   company: "OWASP",
+  //   role: "Open Source Contributor",
+  //   logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/images_5.png",
+  //   duration: "Feb, 2025 - May, 2025",
+  //   location: "USA - Remote",
+  //   description: [
+  //     "Developed security testing tools for web applications.",
+  //     "Improved documentation for cross-site scripting mitigation strategies.",
+  //   ],
+  //   techStack: ["Python", "Security", "Markdown"],
+  // },
 ];
 
 const Experiences = () => {
@@ -73,7 +72,7 @@ const Experiences = () => {
   return (
     <section className="relative z-50 bg-background">
       <div className="relative p-3">
-        <h2 className="text-lg font-semibold text-title select-none">Experiences</h2>
+        <h2 className="text-lg font-semibold text-title select-none">My experience.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative p-3">
@@ -189,10 +188,10 @@ const Experiences = () => {
       <div className="dashed-separator"></div>
       <div className="relative p-3">
         <div className="flex justify-center py-2">
-          <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
+          <a href="https://www.linkedin.com/in/kevin-valenciaa/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#404040] hover:bg-[#262626] text-white text-[13px] font-medium rounded-[9px] transition-colors duration-300 group">
             View All
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+          </a>
         </div>
       </div>
       <div className="dashed-separator"></div>

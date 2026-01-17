@@ -5,7 +5,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Rinkit Adhana - Full Stack Developer",
+  title: "Kevin Valencia - Full Stack Developer",
   description: "Full stack developer who loves building clean, modern websites and apps.",
 };
 
