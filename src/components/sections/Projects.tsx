@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     title: 'PostOpCare',
     description: 'Healthcare RAG system that delivers personalized post-surgery recovery guidance.',
-    image: '/SCR-20260117-mpdy.png',
+    image: '/SCR-20260117-mrjj.jpeg',
     status: 'Building',
     tag: 'Coming Soon',
     link: 'https://github.com/kevinvalenciaa/postopcare-ai',
