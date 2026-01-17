@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     title: 'Quillio',
     description: 'An AI journal that turns daily reflection into strategic insights for founders.',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg1-12.avif',
+    image: '/SCR-20260117-mosl.jpeg',
     status: 'Building',
     tag: 'Coming Soon',
     link: 'https://github.com/kevinvalenciaa/quillio',
@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     title: 'PostOpCare',
     description: 'Healthcare RAG system that delivers personalized post-surgery recovery guidance.',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg2-13.jpg',
+    image: '/SCR-20260117-mpdy.png',
     status: 'Building',
     tag: 'Coming Soon',
     link: 'https://github.com/kevinvalenciaa/postopcare-ai',
@@ -31,7 +31,7 @@ const projects: Project[] = [
   {
     title: 'Keylia AI',
     description: 'An automated AI content creation platform for real estate agents.',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg3-14.avif',
+    image: '/SCR-20260117-mnzo.png',
     status: 'Live',
     tag: 'Home Feed',
     link: 'https://github.com/kevinvalenciaa/keylia-platform',
@@ -39,7 +39,7 @@ const projects: Project[] = [
   {
     title: 'Kairos',
     description: 'A GPU infrastructure research project currently in stealth.',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg4-15.png',
+    image: '/SCR-20260117-mnlp.png',
     status: 'Stealth',
     tag: 'News Screen',
     link: '#',
