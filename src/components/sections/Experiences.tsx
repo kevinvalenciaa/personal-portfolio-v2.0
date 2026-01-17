@@ -18,6 +18,15 @@ interface Experience {
   techStack?: string[];
 }
 
+const techLogos: Record<string, string> = {
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg",
+  "Playwright": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
+  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg",
+};
+
 const experiences: Experience[] = [
   {
     id: "exp-1",
@@ -32,7 +41,7 @@ const experiences: Experience[] = [
       "On track to hit $50M ARR in 2026.",
       "We're profitability obsessed, and proudly Canadian 🍁.",
     ],
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Tailwind", "Node.js"],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Node.js"],
   },
   // {
   //   id: "exp-2",
@@ -176,8 +185,17 @@ const Experiences = () => {
                               initial={{ opacity: 0, scale: 0.9 }}
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ duration: 0.2, delay: 0.25 + idx * 0.03 }}
-                              className="text-[11px] px-2 py-0.5 rounded-[4px] border border-border bg-background text-foreground font-medium"
+                              className="text-[11px] px-2 py-0.5 rounded-[4px] border border-border bg-background text-foreground font-medium flex items-center gap-1"
                             >
+                              {techLogos[tech] && (
+                                <Image
+                                  src={techLogos[tech]}
+                                  alt={tech}
+                                  width={12}
+                                  height={12}
+                                  className="object-contain"
+                                />
+                              )}
                               {tech}
                             </motion.span>
                           ))}
