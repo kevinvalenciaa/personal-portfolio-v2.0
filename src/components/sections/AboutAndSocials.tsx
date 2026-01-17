@@ -58,7 +58,7 @@ const AboutAndSocials = () => {
             Book an intro call
           </a>
           <a
-            href="mailto:rinkitadhana@gmail.com"
+            href="mailto:krvalencia06@gmail.com"
             className="w-fit flex items-center gap-1.5 px-3 py-[7px] bg-[#f5f5f5] hover:bg-[#e5e5e5] transition-colors duration-300 text-sm text-foreground font-medium border border-border cursor-pointer rounded-[9px] group overflow-hidden"
           >
             <Mail 

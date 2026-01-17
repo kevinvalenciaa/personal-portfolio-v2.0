@@ -84,7 +84,13 @@ const Experiences = () => {
                 className="w-full flex items-start justify-between py-4 text-left group transition-colors duration-200"
               >
                 <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg border border-border overflow-hidden bg-background">
+                  <a
+                    href="https://cloverlabs.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex-shrink-0 w-12 h-12 rounded-lg border border-border overflow-hidden bg-background hover:opacity-80 transition-opacity"
+                  >
                     <Image
                       src={exp.logo}
                       alt={exp.company}
@@ -92,7 +98,7 @@ const Experiences = () => {
                       height={48}
                       className="object-cover w-full h-full"
                     />
-                  </div>
+                  </a>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
                       <span className="text-[15px] font-bold text-title">{exp.company}</span>

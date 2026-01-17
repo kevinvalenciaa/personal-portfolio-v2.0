@@ -100,7 +100,7 @@ const HeroHeader = () => {
 
             <a
               className="w-fit flex items-center gap-1.5 px-3 py-2 bg-[#f5f5f5] hover:brightness-[0.97] transition-colors duration-300 text-sm text-foreground font-medium border border-border cursor-pointer rounded-[9px] group overflow-hidden"
-              href="mailto:kevinvalencia@gmail.com"
+              href="mailto:krvalencia06@gmail.com"
             >
               <div className="relative w-4 h-4 overflow-hidden">
                 <Mail className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-6" size={16} />

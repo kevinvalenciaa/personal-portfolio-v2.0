@@ -6,41 +6,41 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  status: 'Building' | 'Live';
+  status: 'Building' | 'Live' | 'Stealth';
   tag: string;
   link: string;
 }
 
 const projects: Project[] = [
   {
-    title: 'Lunel',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissimos, itaque.',
+    title: 'Quillio',
+    description: 'An AI journal that turns daily reflection into strategic insights for founders.',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg1-12.avif',
     status: 'Building',
     tag: 'Coming Soon',
-    link: '#',
+    link: 'https://github.com/kevinvalenciaa/quillio',
   },
   {
-    title: 'Asap',
-    description: 'Record studio-quality remote audio and video, locally captured without quality loss.',
+    title: 'PostOpCare',
+    description: 'Healthcare RAG system that delivers personalized post-surgery recovery guidance.',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg2-13.jpg',
     status: 'Building',
     tag: 'Coming Soon',
-    link: '#',
+    link: 'https://github.com/kevinvalenciaa/postopcare-ai',
   },
   {
-    title: 'Cuez',
-    description: 'A social platform where developers share projects, ideas, and grow together.',
+    title: 'Keylia AI',
+    description: 'A 24/7 AI Agent that qualifies leads, and schedules showings for real estate agents.',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg3-14.avif',
     status: 'Live',
     tag: 'Home Feed',
-    link: '#',
+    link: 'https://github.com/kevinvalenciaa/keylia-platform',
   },
   {
-    title: 'The Daily Crimes',
-    description: 'A crime news website presenting cases through a clean, newspaper-style interface.',
+    title: 'Kairos',
+    description: 'A GPU infrastructure research project currently in stealth.',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/fddff065-18c4-4d35-bf6d-0756710f78d7-rinkitadhana-com/assets/images/bg4-15.png',
-    status: 'Live',
+    status: 'Stealth',
     tag: 'News Screen',
     link: '#',
   }
@@ -82,7 +82,7 @@ export default function Projects() {
                   <div className="flex items-center gap-1.5">
                     <span
                       className={`w-1.5 h-1.5 rounded-full ${
-                        project.status === 'Live' ? 'bg-[#22c55e]' : 'bg-[#ef4444]'
+                        project.status === 'Live' ? 'bg-[#22c55e]' : project.status === 'Stealth' ? 'bg-[#000000]' : 'bg-[#ef4444]'
                       }`}
                     />
                     <span className="text-[12px] font-medium text-muted-foreground">
