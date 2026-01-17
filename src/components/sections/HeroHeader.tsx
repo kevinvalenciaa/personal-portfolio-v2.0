@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Mail, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const GithubIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -274,28 +275,44 @@ const HeroHeader = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col justify-center select-none">
-            <div className="w-full">
-              <div className="relative mb-3 h-4">
-                {monthLabels.map((month, idx) => (
-                  <span
-                    key={idx}
-                    className="absolute text-[10px] text-muted-foreground"
-                    style={{ left: `${month.weekIndex * 13}px` }}
-                  >
-                    {month.label}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-[3px]">
-                {isLoading ? (
-                  <div className="w-full h-[94px] flex items-center justify-center">
-                    <span className="text-xs text-muted-foreground">Loading contributions...</span>
-                  </div>
-                ) : (
+          <div className="w-full flex flex-col justify-center select-none h-[130px]">
+            {!isLoading && (
+              <motion.div
+                className="w-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
+              >
+                <motion.div
+                  className="relative mb-3 h-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  {monthLabels.map((month, idx) => (
+                    <span
+                      key={idx}
+                      className="absolute text-[10px] text-muted-foreground"
+                      style={{ left: `${month.weekIndex * 13}px` }}
+                    >
+                      {month.label}
+                    </span>
+                  ))}
+                </motion.div>
+                <div className="flex gap-[3px]">
                   <TooltipProvider delayDuration={0}>
                     {contributionData.map((week: ContributionDay[], weekIdx: number) => (
-                      <div key={weekIdx} className="flex flex-col gap-[3px]">
+                      <motion.div
+                        key={weekIdx}
+                        className="flex flex-col gap-[3px]"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.15 + weekIdx * 0.012,
+                          ease: [0.21, 0.47, 0.32, 0.98]
+                        }}
+                      >
                         {week.map((day: ContributionDay, dayIdx: number) => (
                           <Tooltip key={`${weekIdx}-${dayIdx}`}>
                             <TooltipTrigger asChild>
@@ -309,28 +326,33 @@ const HeroHeader = () => {
                             </TooltipContent>
                           </Tooltip>
                         ))}
-                      </div>
+                      </motion.div>
                     ))}
                   </TooltipProvider>
-                )}
-              </div>
-              <div className="flex justify-between items-end mt-4">
-                <span className="text-[11px] text-muted-foreground">
-                  {totalContributions.toLocaleString()} contributions in the last year
-                </span>
-                <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                  <span>Less</span>
-                  <div className="flex gap-1">
-                    <div className="w-[10px] h-[10px] rounded-[2px] bg-[#ebedf0]"></div>
-                    <div className="w-[10px] h-[10px] rounded-[2px] bg-[#d1d5db]"></div>
-                    <div className="w-[10px] h-[10px] rounded-[2px] bg-[#9ca3af]"></div>
-                    <div className="w-[10px] h-[10px] rounded-[2px] bg-[#6b7280]"></div>
-                    <div className="w-[10px] h-[10px] rounded-[2px] bg-[#374151]"></div>
-                  </div>
-                  <span>More</span>
                 </div>
-              </div>
-            </div>
+                <motion.div
+                  className="flex justify-between items-end mt-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                >
+                  <span className="text-[11px] text-muted-foreground">
+                    {totalContributions.toLocaleString()} contributions in the last year
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                    <span>Less</span>
+                    <div className="flex gap-1">
+                      <div className="w-[10px] h-[10px] rounded-[2px] bg-[#ebedf0]"></div>
+                      <div className="w-[10px] h-[10px] rounded-[2px] bg-[#d1d5db]"></div>
+                      <div className="w-[10px] h-[10px] rounded-[2px] bg-[#9ca3af]"></div>
+                      <div className="w-[10px] h-[10px] rounded-[2px] bg-[#6b7280]"></div>
+                      <div className="w-[10px] h-[10px] rounded-[2px] bg-[#374151]"></div>
+                    </div>
+                    <span>More</span>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
           </div>
         </div>
         <div className="dashed-separator mt-6"></div>
