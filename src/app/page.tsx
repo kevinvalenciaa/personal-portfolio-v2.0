@@ -4,6 +4,7 @@ import Projects from "@/components/sections/Projects";
 import BlogsSection from "@/components/sections/Blogs";
 import SkillsAndSponsors from "@/components/sections/SkillsAndSponsors";
 import Footer from "@/components/sections/NewsletterFooter";
+import { FadeInSection } from "@/components/ui/fade-in-section";
 
 export default function Home() {
   return (
@@ -11,11 +12,21 @@ export default function Home() {
       <div className="dashed-content-lines" aria-hidden="true" />
       <div className="max-w-[690px] mx-2 sm:mx-8 md:mx-auto relative">
         <HeroHeader />
-        <Experiences />
-        <Projects />
-        <SkillsAndSponsors />
-        <BlogsSection />
-        <Footer />
+        <FadeInSection>
+          <Experiences />
+        </FadeInSection>
+        <FadeInSection>
+          <Projects />
+        </FadeInSection>
+        <FadeInSection>
+          <SkillsAndSponsors />
+        </FadeInSection>
+        <FadeInSection>
+          <BlogsSection />
+        </FadeInSection>
+        <FadeInSection>
+          <Footer />
+        </FadeInSection>
       </div>
     </main>
   );

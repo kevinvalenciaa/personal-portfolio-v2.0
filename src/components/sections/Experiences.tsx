@@ -32,7 +32,7 @@ const experiences: Experience[] = [
       "On track to hit $50M ARR in 2026.",
       "We're profitability obsessed, and proudly Canadian 🍁.",
     ],
-    techStack: ["Next", "Tailwind", "TypeScript", "JavaScript", "Express", "PostgreSQL", "Docker"],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Tailwind", "Node.js"],
   },
   // {
   //   id: "exp-2",
