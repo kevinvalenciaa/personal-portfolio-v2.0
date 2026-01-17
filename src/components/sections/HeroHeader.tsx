@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Mail, Calendar, Github, Linkedin, BookOpen, Code, FileText } from 'lucide-react';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
 
 const XIcon = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -10,14 +11,107 @@ const XIcon = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+  level: number;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
+
+interface MonthLabel {
+  label: string;
+  weekIndex: number;
+}
+
 const HeroHeader = () => {
-  const [contributionGrid, setContributionGrid] = React.useState<number[][]>([]);
+  const [contributionData, setContributionData] = React.useState<ContributionDay[][]>([]);
+  const [totalContributions, setTotalContributions] = React.useState<number>(0);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [monthLabels, setMonthLabels] = React.useState<MonthLabel[]>([]);
+
+  // Convert contribution count to level (0-4)
+  const getContributionLevel = (count: number): number => {
+    if (count === 0) return 0;
+    if (count <= 3) return 1;
+    if (count <= 6) return 2;
+    if (count <= 9) return 3;
+    return 4;
+  };
+
+  // Format date for tooltip (parse as local date to avoid timezone shifts)
+  const formatDate = (dateStr: string): string => {
+    // Parse YYYY-MM-DD as local date, not UTC
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  };
+
+  // Get month labels with positions (parse as local date to avoid timezone shifts)
+  const getMonthLabels = (weeks: ContributionWeek[]): MonthLabel[] => {
+    const labels: MonthLabel[] = [];
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let lastMonth = -1;
+
+    weeks.forEach((week, weekIndex) => {
+      if (week.contributionDays.length > 0) {
+        const firstDay = week.contributionDays[0];
+        // Parse YYYY-MM-DD as local date, not UTC
+        const [, monthStr] = firstDay.date.split('-');
+        const month = parseInt(monthStr, 10) - 1;
+
+        if (month !== lastMonth) {
+          labels.push({ label: monthNames[month], weekIndex });
+          lastMonth = month;
+        }
+      }
+    });
+
+    return labels;
+  };
 
   React.useEffect(() => {
-    const grid = Array.from({ length: 52 }, () =>
-      Array.from({ length: 7 }, () => Math.floor(Math.random() * 5))
-    );
-    setContributionGrid(grid);
+    const fetchContributions = async () => {
+      try {
+        const res = await fetch('/api/github');
+        const data = await res.json();
+
+        if (data.error) {
+          console.error('GitHub API error:', data.error);
+          setIsLoading(false);
+          return;
+        }
+
+        // Only show last 51 weeks to fit within the container
+        const recentWeeks = data.weeks.slice(-51);
+
+        setTotalContributions(data.totalContributions);
+        setMonthLabels(getMonthLabels(recentWeeks));
+
+        // Transform weeks data into grid format with full day info
+        const grid = recentWeeks.map((week: ContributionWeek) =>
+          week.contributionDays.map((day: { contributionCount: number; date: string }) => ({
+            ...day,
+            level: getContributionLevel(day.contributionCount),
+          }))
+        );
+
+        setContributionData(grid);
+      } catch (error) {
+        console.error('Failed to fetch contributions:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchContributions();
   }, []);
 
   const getLevelColor = (level: number) => {
@@ -77,10 +171,10 @@ const HeroHeader = () => {
         <div className="relative p-3">
           <div className="flex flex-col gap-4 mt-2">
             <p className="text-[0.875rem] leading-[1.6]">
-              Hey, I&apos;m Kevin, a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.
+              Hey! I&apos;m Kevin, a Toronto-based CS student at Queen&apos;s University focused on AI and obsessed with building full-stack AI products. I absolutely love to turn ideas from 0 to 1, and I highly prioritize shipping fast, iterating faster, and scaling what works.
             </p>
             <p className="text-[0.875rem] leading-[1.6]">
-              Tech stack isn&apos;t my concern, I&apos;m flexible with whatever the project needs, though I prefer modern frameworks and tools. I&apos;m always open for new opportunities to learn and grow.
+              Currently, I&apos;m a software engineer at Clover Labs (<a href="https://www.linkedin.com/posts/mattespoz_its-official-clover-labs-is-the-fastest-activity-7356360002451726338-n4V7?utm_source=share&utm_medium=member_desktop&rcm=ACoAADznI0gBv8H0a0vVr2CpHkYl7TNQwDWxpCs" target="_blank" rel="noopener noreferrer" className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">Canada&apos;s fastest growing startup</a>), while building a startup in the GPU infrastructure space.
             </p>
           </div>
 
@@ -137,28 +231,49 @@ const HeroHeader = () => {
           </div>
 
           <div className="w-full flex flex-col justify-center select-none">
-            <div className="w-full overflow-hidden border border-border rounded-lg p-4 bg-white">
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-[10px] text-muted-foreground flex gap-4">
-                  <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                  <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
-                </span>
-              </div>
-              <div className="flex gap-[3px]">
-                {contributionGrid.map((week, weekIdx) => (
-                  <div key={weekIdx} className="flex flex-col gap-[3px]">
-                    {week.map((level, dayIdx) => (
-                      <div
-                        key={`${weekIdx}-${dayIdx}`}
-                        className={`w-[10px] h-[10px] rounded-[2px] ${getLevelColor(level)} hover:opacity-80 transition-opacity duration-300`}
-                        title={`${level} contributions`}
-                      />
-                    ))}
-                  </div>
+            <div className="w-full">
+              <div className="relative mb-3 h-4">
+                {monthLabels.map((month, idx) => (
+                  <span
+                    key={idx}
+                    className="absolute text-[10px] text-muted-foreground"
+                    style={{ left: `${month.weekIndex * 13}px` }}
+                  >
+                    {month.label}
+                  </span>
                 ))}
               </div>
+              <div className="flex gap-[3px]">
+                {isLoading ? (
+                  <div className="w-full h-[94px] flex items-center justify-center">
+                    <span className="text-xs text-muted-foreground">Loading contributions...</span>
+                  </div>
+                ) : (
+                  <TooltipProvider delayDuration={0}>
+                    {contributionData.map((week: ContributionDay[], weekIdx: number) => (
+                      <div key={weekIdx} className="flex flex-col gap-[3px]">
+                        {week.map((day: ContributionDay, dayIdx: number) => (
+                          <Tooltip key={`${weekIdx}-${dayIdx}`}>
+                            <TooltipTrigger asChild>
+                              <div
+                                className={`w-[10px] h-[10px] rounded-[2px] ${getLevelColor(day.level)} hover:opacity-80 transition-opacity duration-300 cursor-pointer`}
+                              />
+                            </TooltipTrigger>
+                            <TooltipContent side="top" sideOffset={5} className="z-[100]">
+                              <p className="text-primary-foreground/70">{day.contributionCount} contribution{day.contributionCount !== 1 ? 's' : ''}</p>
+                              <p className="text-primary-foreground/70">{formatDate(day.date)}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        ))}
+                      </div>
+                    ))}
+                  </TooltipProvider>
+                )}
+              </div>
               <div className="flex justify-between items-end mt-4">
-                <span className="text-[11px] text-muted-foreground">1,562 activities in 2025</span>
+                <span className="text-[11px] text-muted-foreground">
+                  {totalContributions.toLocaleString()} contributions in the last year
+                </span>
                 <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                   <span>Less</span>
                   <div className="flex gap-1">
