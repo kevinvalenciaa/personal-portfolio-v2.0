@@ -178,21 +178,29 @@ const HeroHeader = () => {
                     src={personalInfo.profileImage}
                   />
                 </div>
-                <a
-                  href="https://cansbridgescholars.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm hover:opacity-80 transition-opacity"
-                  title="Cansbridge Scholar"
-                >
-                  <Image
-                    alt="Cansbridge Scholars"
-                    width={28}
-                    height={28}
-                    className="object-cover w-full h-full"
-                    src="/cansbridgescholars_logo.jpg"
-                  />
-                </a>
+                <TooltipProvider delayDuration={0}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        href="https://cansbridgescholars.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm hover:opacity-80 transition-opacity"
+                      >
+                        <Image
+                          alt="Cansbridge Scholars"
+                          width={28}
+                          height={28}
+                          className="object-cover w-full h-full"
+                          src="/cansbridgescholars_logo.jpg"
+                        />
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" sideOffset={5} className="z-[100]">
+                      <p className="text-primary-foreground/70">Meraki Cohort | Fall 2025</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
 
               <div className="flex flex-col justify-end h-full py-1 select-none">
