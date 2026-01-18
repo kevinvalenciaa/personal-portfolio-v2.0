@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import Image from 'next/image';
 import {
   SiPython,
   SiTypescript,
@@ -17,7 +20,6 @@ import {
   SiNextdotjs,
   SiExpress,
   SiPandas,
-  SiRedis,
   SiTailwindcss,
   SiPytorch,
   SiTensorflow,
@@ -28,47 +30,62 @@ import { FaJava, FaDatabase } from 'react-icons/fa';
 interface Skill {
   name: string;
   icon?: React.ReactNode;
+  color?: string;
 }
 
 const languageSkills: Skill[] = [
-  { name: 'Python', icon: <SiPython className="size-3" /> },
-  { name: 'Java', icon: <FaJava className="size-3" /> },
-  { name: 'JavaScript', icon: <SiJavascript className="size-3" /> },
-  { name: 'TypeScript', icon: <SiTypescript className="size-3" /> },
-  { name: 'SQL', icon: <FaDatabase className="size-3" /> },
-  { name: 'C', icon: <SiC className="size-3" /> },
+  { name: 'Python', icon: <SiPython className="size-3" />, color: '#3776AB' },
+  { name: 'Java', icon: <FaJava className="size-3" />, color: '#ED8B00' },
+  { name: 'JavaScript', icon: <SiJavascript className="size-3" />, color: '#F7DF1E' },
+  { name: 'TypeScript', icon: <SiTypescript className="size-3" />, color: '#3178C6' },
+  { name: 'SQL', icon: <FaDatabase className="size-3" />, color: '#336791' },
+  { name: 'C', icon: <SiC className="size-3" />, color: '#A8B9CC' },
 ];
 
 const toolsSkills: Skill[] = [
-  { name: 'AWS', icon: <SiAmazonwebservices className="size-3" /> },
-  { name: 'Git', icon: <SiGit className="size-3" /> },
-  { name: 'GitHub', icon: <SiGithub className="size-3" /> },
-  { name: 'Kubernetes', icon: <SiKubernetes className="size-3" /> },
-  { name: 'Docker', icon: <SiDocker className="size-3" /> },
-  { name: 'Jest', icon: <SiJest className="size-3" /> },
-  { name: 'Postman', icon: <SiPostman className="size-3" /> },
+  { name: 'AWS', icon: <SiAmazonwebservices className="size-3" />, color: '#FF9900' },
+  { name: 'Git', icon: <SiGit className="size-3" />, color: '#F05032' },
+  { name: 'GitHub', icon: <SiGithub className="size-3" />, color: '#171515' },
+  { name: 'Kubernetes', icon: <SiKubernetes className="size-3" />, color: '#326CE5' },
+  { name: 'Docker', icon: <SiDocker className="size-3" />, color: '#2496ED' },
+  { name: 'Jest', icon: <SiJest className="size-3" />, color: '#C21325' },
+  { name: 'Postman', icon: <SiPostman className="size-3" />, color: '#FF6C37' },
 ];
 
 const frameworkSkills: Skill[] = [
-  { name: 'React', icon: <SiReact className="size-3" /> },
-  { name: 'Node.js', icon: <SiNodedotjs className="size-3" /> },
-  { name: 'PostgreSQL', icon: <SiPostgresql className="size-3" /> },
-  { name: 'Redis', icon: <SiRedis className="size-3" /> },
-  { name: 'Next.js', icon: <SiNextdotjs className="size-3" /> },
-  { name: 'Express.js', icon: <SiExpress className="size-3" /> },
-  { name: 'Tailwind', icon: <SiTailwindcss className="size-3" /> },
-  { name: 'pandas', icon: <SiPandas className="size-3" /> },
-  { name: 'PyTorch', icon: <SiPytorch className="size-3" /> },
-  { name: 'TensorFlow', icon: <SiTensorflow className="size-3" /> },
-  { name: 'Jupyter', icon: <SiJupyter className="size-3" /> },
+  { name: 'React', icon: <SiReact className="size-3" />, color: '#61DAFB' },
+  { name: 'Node.js', icon: <SiNodedotjs className="size-3" />, color: '#339933' },
+  { name: 'PostgreSQL', icon: <SiPostgresql className="size-3" />, color: '#4169E1' },
+  { name: 'Redis', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" width={12} height={12} className="transition-all duration-200" />, color: 'image' },
+  { name: 'Next.js', icon: <SiNextdotjs className="size-3" />, color: '#171515' },
+  { name: 'Express.js', icon: <SiExpress className="size-3" />, color: '#171515' },
+  { name: 'Tailwind', icon: <SiTailwindcss className="size-3" />, color: '#06B6D4' },
+  { name: 'pandas', icon: <SiPandas className="size-3" />, color: '#150458' },
+  { name: 'PyTorch', icon: <SiPytorch className="size-3" />, color: '#EE4C2C' },
+  { name: 'TensorFlow', icon: <SiTensorflow className="size-3" />, color: '#FF6F00' },
+  { name: 'Jupyter', icon: <SiJupyter className="size-3" />, color: '#F37626' },
 ];
 
-const SkillBadge = ({ skill }: { skill: Skill }) => (
-  <div className="flex items-center gap-1.5 px-2.5 py-1 bg-muted rounded-[6px] border border-transparent hover:border-border transition-colors duration-200">
-    <span className="text-muted-foreground">{skill.icon}</span>
-    <span className="text-[13px] font-medium text-foreground">{skill.name}</span>
-  </div>
-);
+const SkillBadge = ({ skill }: { skill: Skill }) => {
+  const isImageIcon = skill.color === 'image';
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <div
+      className="group flex items-center gap-1.5 px-2.5 py-1 bg-muted rounded-[6px] border border-transparent hover:border-border transition-all duration-200 select-none"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span
+        className={`transition-all duration-200 ${isImageIcon ? 'grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100' : ''}`}
+        style={!isImageIcon ? { color: isHovered ? skill.color : 'var(--muted-foreground)' } : undefined}
+      >
+        {skill.icon}
+      </span>
+      <span className="text-[13px] font-medium text-foreground">{skill.name}</span>
+    </div>
+  );
+};
 
 const SkillsAndSponsors = () => {
   return (

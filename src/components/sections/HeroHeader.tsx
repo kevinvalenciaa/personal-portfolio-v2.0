@@ -147,10 +147,10 @@ const HeroHeader = () => {
   const getLevelColor = (level: number) => {
     switch (level) {
       case 0: return 'bg-[#ebedf0]';
-      case 1: return 'bg-[#d1d5db]';
-      case 2: return 'bg-[#9ca3af]';
-      case 3: return 'bg-[#6b7280]';
-      case 4: return 'bg-[#374151]';
+      case 1: return 'bg-[#c4c8cf]';
+      case 2: return 'bg-[#8b929c]';
+      case 3: return 'bg-[#5c636e]';
+      case 4: return 'bg-[#2d3340]';
       default: return 'bg-[#ebedf0]';
     }
   };

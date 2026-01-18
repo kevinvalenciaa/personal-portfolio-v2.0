@@ -19,12 +19,15 @@ interface Experience {
 }
 
 const techLogos: Record<string, string> = {
+  "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
   "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
   "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg",
   "Playwright": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
   "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg",
   "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg",
+  "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
 };
 
 const experiences: Experience[] = [
@@ -41,7 +44,7 @@ const experiences: Experience[] = [
       "On track to hit $50M ARR in 2026.",
       "We're profitability obsessed, and proudly Canadian 🍁.",
     ],
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Node.js"],
+    techStack: ["AWS", "Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Node.js", "Tailwind", "Redis"],
   },
   // {
   //   id: "exp-2",
