@@ -4,81 +4,66 @@ import Image from 'next/image';
 import { personalInfo } from '@/config/personal';
 import { motion } from 'framer-motion';
 
-const containerVariants = {
+// Smooth spring-like easing for React Flow feel
+const smoothEase = [0.22, 1, 0.36, 1] as const;
+
+const dotGridVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      duration: 1.2,
+      ease: smoothEase,
     },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+const separatorVariants = {
+  hidden: { scaleX: 0, opacity: 0 },
   visible: {
+    scaleX: 1,
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const urlVariants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
+      duration: 0.8,
+      ease: smoothEase,
     },
   },
 };
 
 export default function PreviewPage() {
   return (
-    <main className="h-screen bg-background dashed-border-container flex flex-col">
+    <main className="h-screen bg-background dashed-border-container flex flex-col overflow-hidden">
       <div className="dashed-content-lines" style={{ maxWidth: '1150px' }} aria-hidden="true" />
       <div className="max-w-[1150px] mx-4 sm:mx-12 md:mx-auto relative w-full flex flex-col h-full">
         {/* Top dot grid section - fills remaining space */}
-        <div className="relative z-50 bg-background flex-[0.8]">
+        <motion.div
+          className="relative z-50 bg-background flex-[0.8]"
+          initial="hidden"
+          animate="visible"
+          variants={dotGridVariants}
+        >
           <div className="relative p-4 h-full">
             <div className="w-full h-full dot-grid" style={{ backgroundImage: 'radial-gradient(#aaa 1.5px, transparent 1.5px)', backgroundSize: '14px 14px' }}></div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="dashed-separator"></div>
-
-        {/* Profile section - centered */}
         <motion.div
-          className="relative z-50 bg-background"
+          className="dashed-separator origin-left"
           initial="hidden"
           animate="visible"
-          variants={containerVariants}
-        >
+          variants={separatorVariants}
+        />
+
+        {/* Profile section - centered */}
+        <div className="relative z-50 bg-background">
           <div className="relative px-20 py-24">
             <div className="flex items-center gap-16">
               {/* Profile image */}
               <motion.div
                 className="border border-border rounded-[30px] p-[12px] bg-white"
-                variants={imageVariants}
+                initial={{ opacity: 0, scale: 0.8, x: -50 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: smoothEase }}
               >
                 <Image
                   src="/linkedin-pfp.jpg"
@@ -90,45 +75,58 @@ export default function PreviewPage() {
               </motion.div>
 
               {/* Name and title */}
-              <motion.div
-                className="flex flex-col select-none"
-                variants={containerVariants}
-              >
+              <div className="flex flex-col select-none">
                 <motion.h1
                   className="text-[5rem] font-bold leading-[1.1] text-title"
-                  variants={itemVariants}
+                  initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.7, ease: smoothEase, delay: 0.2 }}
                 >
                   {personalInfo.name}
                 </motion.h1>
                 <motion.p
                   className="text-muted-foreground text-4xl mt-5"
-                  variants={itemVariants}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: smoothEase, delay: 0.4 }}
                 >
                   Software Engineer
                 </motion.p>
-              </motion.div>
+              </div>
             </div>
 
             {/* Website URL - bottom right */}
             <motion.span
               className="absolute bottom-10 right-20 text-muted-foreground text-3xl select-none"
-              variants={urlVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: smoothEase, delay: 0.6 }}
             >
               kevinvalencia.ca
             </motion.span>
           </div>
-        </motion.div>
+        </div>
 
-        <div className="dashed-separator"></div>
+        <motion.div
+          className="dashed-separator origin-right"
+          initial="hidden"
+          animate="visible"
+          variants={separatorVariants}
+          transition={{ delay: 0.2 }}
+        />
 
         {/* Bottom dot grid section - fills remaining space */}
-        <div className="relative z-50 bg-background flex-[0.8]">
+        <motion.div
+          className="relative z-50 bg-background flex-[0.8]"
+          initial="hidden"
+          animate="visible"
+          variants={dotGridVariants}
+          transition={{ delay: 0.3 }}
+        >
           <div className="relative p-4 h-full">
             <div className="w-full h-full dot-grid" style={{ backgroundImage: 'radial-gradient(#aaa 1.5px, transparent 1.5px)', backgroundSize: '14px 14px' }}></div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

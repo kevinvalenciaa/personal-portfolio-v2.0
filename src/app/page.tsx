@@ -12,7 +12,7 @@ export default function Home() {
       <div className="dashed-content-lines" aria-hidden="true" />
       <div className="max-w-[690px] mx-2 sm:mx-8 md:mx-auto relative">
         <HeroHeader />
-        <FadeInSection>
+        <FadeInSection delay={1.2}>
           <Experiences />
         </FadeInSection>
         <FadeInSection>

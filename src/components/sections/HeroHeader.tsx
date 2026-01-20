@@ -168,7 +168,13 @@ const HeroHeader = () => {
         <div className="relative p-3">
           <div className="flex items-stretch justify-between relative">
             <div className="flex items-end gap-3">
-              <div className="relative">
+              {/* Profile image with animation */}
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, ease: 'easeOut', delay: 0 }}
+              >
                 <div className="border border-border rounded-[12px] p-[4px] cursor-pointer hover:brightness-90 transition duration-300 bg-white">
                   <Image
                     alt="Profile"
@@ -201,16 +207,27 @@ const HeroHeader = () => {
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-              </div>
+              </motion.div>
 
+              {/* Name and title with animation */}
               <div className="flex flex-col justify-end h-full py-1 select-none">
                 <div>
-                  <h1 className="text-[1.55rem] font-bold leading-[1.08] text-title relative inline-block">
+                  <motion.h1
+                    className="text-[1.55rem] font-bold leading-[1.08] text-title relative inline-block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, ease: 'easeOut', delay: 0.2 }}
+                  >
                     {personalInfo.name}
-                  </h1>
-                  <div className="mt-1">
+                  </motion.h1>
+                  <motion.div
+                    className="mt-1"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, ease: 'easeOut', delay: 0.4 }}
+                  >
                     <span className="text-muted-foreground text-sm">{personalInfo.title}</span>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -222,16 +239,28 @@ const HeroHeader = () => {
 
       <div className="relative">
         <div className="relative p-3">
-          <div className="flex flex-col gap-4 mt-2">
+          {/* Summary/Bio section with animation */}
+          <motion.div
+            className="flex flex-col gap-4 mt-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeOut', delay: 0.6 }}
+          >
             <p className="text-[0.875rem] leading-[1.6]">
               Hey! I&apos;m Kevin, a Toronto-based CS student at Queen&apos;s University focused on AI and obsessed with building full-stack AI products. I absolutely love to turn ideas from 0 to 1, and I highly prioritize shipping fast, iterating faster, and scaling what works.
             </p>
             <p className="text-[0.875rem] leading-[1.6]">
               Currently, I&apos;m a software engineer at Clover Labs (<a href="https://www.linkedin.com/posts/mattespoz_its-official-clover-labs-is-the-fastest-activity-7356360002451726338-n4V7?utm_source=share&utm_medium=member_desktop&rcm=ACoAADznI0gBv8H0a0vVr2CpHkYl7TNQwDWxpCs" target="_blank" rel="noopener noreferrer" className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">Canada&apos;s fastest growing startup</a>), while building a startup in the GPU infrastructure space.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex pt-6 gap-2 select-none">
+          {/* CTA buttons with animation */}
+          <motion.div
+            className="flex pt-6 gap-2 select-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeOut', delay: 0.8 }}
+          >
             <a
               className="w-fit flex items-center bg-[#404040] hover:bg-[#262626] transition-colors duration-300 gap-1.5 px-3 py-2 text-white text-sm font-medium cursor-pointer rounded-[9px] group overflow-hidden"
               href={personalInfo.calLink}
@@ -268,9 +297,15 @@ const HeroHeader = () => {
               </div>
               View resume
             </a> */}
-          </div>
+          </motion.div>
 
-          <div className="py-8 flex flex-col gap-3">
+          {/* Socials section with animation */}
+          <motion.div
+            className="py-8 flex flex-col gap-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeOut', delay: 1.0 }}
+          >
             <h2 className="text-sm font-medium text-foreground">
               Here are my <span className="font-semibold text-black">socials</span>
             </h2>
@@ -281,7 +316,7 @@ const HeroHeader = () => {
               <SocialLink href={personalInfo.socials.substack} icon={<SubstackIcon size={14} />} label="Substack" />
 {/*               <SocialLink href={personalInfo.socials.leetcode} icon={<Code size={14} />} label="LeetCode" /> */}
             </div>
-          </div>
+          </motion.div>
 
           <div className="w-full flex flex-col justify-center select-none h-[130px]">
             {!isLoading && (
