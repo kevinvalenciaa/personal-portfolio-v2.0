@@ -326,52 +326,56 @@ const HeroHeader = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
               >
-                <motion.div
-                  className="relative mb-3 h-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  {monthLabels.map((month, idx) => (
-                    <span
-                      key={idx}
-                      className="absolute text-[10px] text-muted-foreground"
-                      style={{ left: `${month.weekIndex * 13}px` }}
+                <div className="overflow-x-auto">
+                  <div className="min-w-max">
+                    <motion.div
+                      className="relative mb-3 h-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      {month.label}
-                    </span>
-                  ))}
-                </motion.div>
-                <div className="flex gap-[3px]">
-                  <TooltipProvider delayDuration={0}>
-                    {contributionData.map((week: ContributionDay[], weekIdx: number) => (
-                      <motion.div
-                        key={weekIdx}
-                        className="flex flex-col gap-[3px]"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.15 + weekIdx * 0.012,
-                          ease: [0.21, 0.47, 0.32, 0.98]
-                        }}
-                      >
-                        {week.map((day: ContributionDay, dayIdx: number) => (
-                          <Tooltip key={`${weekIdx}-${dayIdx}`}>
-                            <TooltipTrigger asChild>
-                              <div
-                                className={`w-[10px] h-[10px] rounded-[2px] ${getLevelColor(day.level)} hover:opacity-80 transition-opacity duration-300 cursor-pointer`}
-                              />
-                            </TooltipTrigger>
-                            <TooltipContent side="top" sideOffset={5} className="z-[100]">
-                              <p className="text-primary-foreground/70">{day.contributionCount} contribution{day.contributionCount !== 1 ? 's' : ''}</p>
-                              <p className="text-primary-foreground/70">{formatDate(day.date)}</p>
-                            </TooltipContent>
-                          </Tooltip>
+                      {monthLabels.map((month, idx) => (
+                        <span
+                          key={idx}
+                          className="absolute text-[10px] text-muted-foreground"
+                          style={{ left: `${month.weekIndex * 13}px` }}
+                        >
+                          {month.label}
+                        </span>
+                      ))}
+                    </motion.div>
+                    <div className="flex gap-[3px]">
+                      <TooltipProvider delayDuration={0}>
+                        {contributionData.map((week: ContributionDay[], weekIdx: number) => (
+                          <motion.div
+                            key={weekIdx}
+                            className="flex flex-col gap-[3px]"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                              duration: 0.4,
+                              delay: 0.15 + weekIdx * 0.012,
+                              ease: [0.21, 0.47, 0.32, 0.98]
+                            }}
+                          >
+                            {week.map((day: ContributionDay, dayIdx: number) => (
+                              <Tooltip key={`${weekIdx}-${dayIdx}`}>
+                                <TooltipTrigger asChild>
+                                  <div
+                                    className={`w-[10px] h-[10px] rounded-[2px] ${getLevelColor(day.level)} hover:opacity-80 transition-opacity duration-300 cursor-pointer`}
+                                  />
+                                </TooltipTrigger>
+                                <TooltipContent side="top" sideOffset={5} className="z-[100]">
+                                  <p className="text-primary-foreground/70">{day.contributionCount} contribution{day.contributionCount !== 1 ? 's' : ''}</p>
+                                  <p className="text-primary-foreground/70">{formatDate(day.date)}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            ))}
+                          </motion.div>
                         ))}
-                      </motion.div>
-                    ))}
-                  </TooltipProvider>
+                      </TooltipProvider>
+                    </div>
+                  </div>
                 </div>
                 <motion.div
                   className="flex justify-between items-end mt-4"
