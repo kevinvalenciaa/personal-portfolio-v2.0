@@ -17,32 +17,32 @@ export default function PreviewPage() {
 
         {/* Profile section - centered */}
         <div className="relative z-50 bg-background">
-          <div className="relative p-10 py-20">
-            <div className="flex items-center gap-12">
+          <div className="relative px-20 py-24">
+            <div className="flex items-center gap-16">
               {/* Profile image */}
-              <div className="border border-border rounded-[26px] p-[10px] bg-white">
+              <div className="border border-border rounded-[30px] p-[12px] bg-white">
                 <Image
                   src="/linkedin-pfp.jpg"
                   alt="Profile"
-                  width={210}
-                  height={210}
-                  className="rounded-[18px] object-cover select-none"
+                  width={260}
+                  height={260}
+                  className="rounded-[20px] object-cover select-none"
                 />
               </div>
 
               {/* Name and title */}
               <div className="flex flex-col select-none">
-                <h1 className="text-[4rem] font-bold leading-[1.1] text-title">
+                <h1 className="text-[5rem] font-bold leading-[1.1] text-title">
                   {personalInfo.name}
                 </h1>
-                <p className="text-muted-foreground text-3xl mt-4">
+                <p className="text-muted-foreground text-4xl mt-5">
                   Software Engineer
                 </p>
               </div>
             </div>
 
             {/* Website URL - bottom right */}
-            <span className="absolute bottom-8 right-10 text-muted-foreground text-xl select-none">
+            <span className="absolute bottom-10 right-20 text-muted-foreground text-3xl select-none">
               kevinvalencia.ca
             </span>
           </div>
