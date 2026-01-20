@@ -202,7 +202,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 1px;
     background-image: repeating-linear-gradient(
       to bottom,
       #999 0px,
@@ -241,7 +241,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 1px;
     background-image: repeating-linear-gradient(
       to bottom,
       #999 0px,
@@ -280,7 +280,7 @@
 
   /* Dashed horizontal separator */
   .dashed-separator {
-    height: 2px;
+    height: 1px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     background-image: repeating-linear-gradient(

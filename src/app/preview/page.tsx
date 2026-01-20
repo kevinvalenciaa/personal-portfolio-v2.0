@@ -1,5 +1,56 @@
+'use client';
+
 import Image from 'next/image';
 import { personalInfo } from '@/config/personal';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
+
+const urlVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
 
 export default function PreviewPage() {
   return (
@@ -16,11 +67,19 @@ export default function PreviewPage() {
         <div className="dashed-separator"></div>
 
         {/* Profile section - centered */}
-        <div className="relative z-50 bg-background">
+        <motion.div
+          className="relative z-50 bg-background"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           <div className="relative px-20 py-24">
             <div className="flex items-center gap-16">
               {/* Profile image */}
-              <div className="border border-border rounded-[30px] p-[12px] bg-white">
+              <motion.div
+                className="border border-border rounded-[30px] p-[12px] bg-white"
+                variants={imageVariants}
+              >
                 <Image
                   src="/linkedin-pfp.jpg"
                   alt="Profile"
@@ -28,25 +87,39 @@ export default function PreviewPage() {
                   height={260}
                   className="rounded-[20px] object-cover select-none"
                 />
-              </div>
+              </motion.div>
 
               {/* Name and title */}
-              <div className="flex flex-col select-none">
-                <h1 className="text-[5rem] font-bold leading-[1.1] text-title">
+              <motion.div
+                className="flex flex-col select-none"
+                variants={containerVariants}
+              >
+                <motion.h1
+                  className="text-[5rem] font-bold leading-[1.1] text-title"
+                  variants={itemVariants}
+                >
                   {personalInfo.name}
-                </h1>
-                <p className="text-muted-foreground text-4xl mt-5">
+                </motion.h1>
+                <motion.p
+                  className="text-muted-foreground text-4xl mt-5"
+                  variants={itemVariants}
+                >
                   Software Engineer
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             </div>
 
             {/* Website URL - bottom right */}
-            <span className="absolute bottom-10 right-20 text-muted-foreground text-3xl select-none">
+            <motion.span
+              className="absolute bottom-10 right-20 text-muted-foreground text-3xl select-none"
+              variants={urlVariants}
+              initial="hidden"
+              animate="visible"
+            >
               kevinvalencia.ca
-            </span>
+            </motion.span>
           </div>
-        </div>
+        </motion.div>
 
         <div className="dashed-separator"></div>
 
