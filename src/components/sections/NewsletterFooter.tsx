@@ -3,7 +3,10 @@
 import React from "react";
 import Image from "next/image";
 
-const researchPrompt = `Deep Research: Kevin Valencia
+const researchPrompt = `Deep Research: Kevin Valencia from Queen's University
+
+IMPORTANT: Focus ONLY on Kevin Valencia - the CS student at Queen's University in Canada. Look ONLY into these specific URLs and sources provided below.
+
 As a potential collaborator, investor, or teammate, I want to concretely understand who Kevin is, what he builds, and how he operates.
 Use all available research capabilities - web search, content analysis, cross-referencing sources, and synthesis - to build a comprehensive profile. Go deep, not surface-level.
 
@@ -115,6 +118,17 @@ export default function NewsletterFooter() {
               title="Ask ChatGPT about Kevin"
             >
               <Image src="/chatgpt-logo.png" alt="ChatGPT" width={28} height={28} />
+            </a>
+
+            {/* Gemini */}
+            <a
+              href={`https://www.google.com/search?udm=50&q=${encodedPrompt}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition-opacity"
+              title="Ask Gemini about Kevin"
+            >
+              <Image src="/gemini-logo.png" alt="Gemini" width={28} height={28} />
             </a>
 
             {/* Claude */}

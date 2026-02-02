@@ -28,9 +28,24 @@ const techLogos: Record<string, string> = {
   "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg",
   "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
 };
 
 const experiences: Experience[] = [
+  {
+    id: "exp-0",
+    company: "Stan",
+    role: "Software Engineer",
+    logo: "/stan-logo.jpg",
+    duration: "Incoming Summer 2026",
+    location: "Toronto, Canada",
+    isFullTime: true,
+    description: [
+      "Empowering creators to become entrepreneurs.",
+    ],
+    techStack: ["AWS", "React", "Python"],
+  },
   {
     id: "exp-1",
     company: "Clover Labs",
