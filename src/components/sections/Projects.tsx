@@ -34,7 +34,7 @@ const projects: Project[] = [
     image: '/SCR-20260117-mnzo.png',
     status: 'Live',
     tag: 'Home Feed',
-    link: 'https://github.com/kevinvalenciaa/keylia-platform',
+    link: 'https://usekeylia.com',
   },
   {
     title: 'Kairos',
