@@ -10,6 +10,7 @@ interface Experience {
   company: string;
   role: string;
   logo: string;
+  link: string;
   duration: string;
   location: string;
   isFullTime?: boolean;
@@ -38,6 +39,7 @@ const experiences: Experience[] = [
     company: "Clover Labs",
     role: "Software Engineer",
     logo: "/tryclover_logo.jpg",
+    link: "https://cloverlabs.ai/",
     duration: "May 2026 - Present",
     location: "Toronto, Canada",
     description: [
@@ -52,6 +54,7 @@ const experiences: Experience[] = [
     company: "Stan",
     role: "Software Engineer",
     logo: "/stan-logo.jpg",
+    link: "https://www.stan.store/",
     duration: "January 2026 - April 2026",
     location: "Toronto, Canada",
     description: [
@@ -110,7 +113,7 @@ const Experiences = () => {
               >
                 <div className="flex gap-3">
                   <a
-                    href="https://cloverlabs.ai/"
+                    href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
