@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { personalInfo } from "@/config/personal";
 
 const researchPrompt = `Deep Research: Kevin Valencia from Queen's University
 
@@ -18,7 +19,7 @@ What does his work history reveal about his growth trajectory and the types of p
 
 
 Online Presence & Portfolio
-LinkedIn (https://www.linkedin.com/in/kevin-valenciaa/)
+LinkedIn (${personalInfo.socials.linkedin})
 
 Walk through his profile thoroughly - what story does his experience tell?
 Analyze the progression of roles, companies, and responsibilities over time
@@ -32,7 +33,7 @@ How does he present his work and communicate his value proposition?
 What design and UX choices reveal about his attention to detail?
 Are there any hidden pages, blog posts, or Easter eggs worth noting?
 
-GitHub (https://github.com/kevinvalenciaa)
+GitHub (${personalInfo.socials.github})
 
 Analyze his repository history - what has he built, and what's the scope of each project?
 Examine commit frequency, activity patterns, and consistency over time
@@ -41,13 +42,21 @@ Review code quality - structure, documentation, README thoroughness, testing pra
 Are there standout open-source contributions, forks, or collaborations?
 What do his pinned repos and contribution graph reveal about priorities?
 
-Substack (https://substack.com/@kevinvalencia)
+Substack (${personalInfo.socials.substack})
 
 Read through his published writing - what topics does he explore?
 What does his writing reveal about his thinking, interests, and intellectual depth?
 How does he communicate complex ideas - is he technical, philosophical, practical?
 What themes or obsessions recur across posts?
 How does his written voice compare to his professional presence?
+
+X (${personalInfo.socials.x})
+
+Go through his posts and threads - what is he building, sharing, and reacting to right now?
+Does he build in public, and do his posts trace the progress of his projects over time?
+Who does he engage with, and which communities or conversations does he show up in?
+What do his replies and reposts reveal about his opinions and what he pays attention to?
+How does his voice on X compare to his long-form writing on Substack?
 
 
 Technical Profile
