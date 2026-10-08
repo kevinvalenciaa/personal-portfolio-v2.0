@@ -40,7 +40,6 @@ const experiences: Experience[] = [
     logo: "/tryclover_logo.jpg",
     duration: "May 2026 - Present",
     location: "Toronto, Canada",
-    isFullTime: true,
     description: [
       "A portfolio of four verticalized ('leafs') AI growth agents.",
       "On track to hit $50M ARR in 2026.",
@@ -55,7 +54,6 @@ const experiences: Experience[] = [
     logo: "/stan-logo.jpg",
     duration: "January 2026 - April 2026",
     location: "Toronto, Canada",
-    isFullTime: true,
     description: [
       "Empowering creators to become entrepreneurs.",
     ],

@@ -67,7 +67,7 @@ const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
 };
 
 const ComingSoon = () => (
-  <p className="py-4 lg:py-5 text-[1rem] font-bold text-title leading-snug select-none">
+  <p className="py-4 lg:py-5 text-[0.875rem] text-muted-foreground leading-[1.5]">
     Coming Soon.
   </p>
 );
