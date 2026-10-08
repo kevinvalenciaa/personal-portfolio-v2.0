@@ -35,31 +35,29 @@ const techLogos: Record<string, string> = {
 const experiences: Experience[] = [
   {
     id: "exp-0",
-    company: "Stan",
-    role: "Software Engineer",
-    logo: "/stan-logo.jpg",
-    duration: "Incoming Summer 2026",
-    location: "Toronto, Canada",
-    isFullTime: true,
-    description: [
-      "Empowering creators to become entrepreneurs.",
-    ],
-    techStack: ["AWS", "React", "Python"],
-  },
-  {
-    id: "exp-1",
     company: "Clover Labs",
-    role: "Software Engineer Intern",
+    role: "Software Engineer",
     logo: "/tryclover_logo.jpg",
-    duration: "January 2026 - Present",
+    duration: "May 2026 - Present",
     location: "Toronto, Canada",
-    isFullTime: true,
     description: [
       "A portfolio of four verticalized ('leafs') AI growth agents.",
       "On track to hit $50M ARR in 2026.",
       "We're profitability obsessed, and proudly Canadian 🍁.",
     ],
     techStack: ["AWS", "Next.js", "TypeScript", "PostgreSQL", "Playwright", "Docker", "Node.js", "Tailwind", "Redis"],
+  },
+  {
+    id: "exp-1",
+    company: "Stan",
+    role: "Software Engineer",
+    logo: "/stan-logo.jpg",
+    duration: "January 2026 - April 2026",
+    location: "Toronto, Canada",
+    description: [
+      "Empowering creators to become entrepreneurs.",
+    ],
+    techStack: ["AWS", "React", "Python"],
   },
   // {
   //   id: "exp-2",
@@ -90,7 +88,7 @@ const experiences: Experience[] = [
 ];
 
 const Experiences = () => {
-  const [openId, setOpenId] = useState<string | null>("exp-1");
+  const [openId, setOpenId] = useState<string | null>("exp-0");
 
   const toggleAccordion = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -99,7 +97,7 @@ const Experiences = () => {
   return (
     <section className="relative z-50 bg-background">
       <div className="relative p-3">
-        <h2 className="text-lg font-semibold text-title select-none">My experience.</h2>
+        <h2 className="text-lg font-semibold text-title select-none">My Experience.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative p-3">

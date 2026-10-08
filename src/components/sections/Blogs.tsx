@@ -10,13 +10,6 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
-  {
-    title: "Ikigai Project Thesis: Quillio",
-    date: "October 2025",
-    claps: "",
-    tags: ["Product", "AI", "Journalling", "Founders"],
-    link: "https://substack.com/home/post/p-177443136",
-  },
   // {
   //   title: "JWT Authentication APIs with TypeScript, Node.js, and MongoDB.",
   //   date: "Feb 2025",
@@ -73,19 +66,31 @@ const BlogItem = ({ post, isLast }: { post: BlogPost; isLast: boolean }) => {
   );
 };
 
+const ComingSoon = () => (
+  <p className="py-4 lg:py-5 text-[0.875rem] text-muted-foreground leading-[1.5]">
+    Coming Soon.
+  </p>
+);
+
 const BlogsSection = () => {
+  const hasPosts = blogPosts.length > 0;
+
   return (
     <section className="relative z-50 bg-background">
       <div className="dashed-separator"></div>
       <div className="relative p-3">
-        <h2 className="text-lg font-semibold text-title select-none">Compound wins.</h2>
+        <h2 className="text-lg font-semibold text-title select-none">Thought Experiments.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative px-4 md:px-5">
         <div className="flex flex-col">
-          {blogPosts.map((post, index) => (
-            <BlogItem key={index} post={post} isLast={index === blogPosts.length - 1} />
-          ))}
+          {hasPosts ? (
+            blogPosts.map((post, index) => (
+              <BlogItem key={index} post={post} isLast={index === blogPosts.length - 1} />
+            ))
+          ) : (
+            <ComingSoon />
+          )}
         </div>
       </div>
       <div className="dashed-separator"></div>
