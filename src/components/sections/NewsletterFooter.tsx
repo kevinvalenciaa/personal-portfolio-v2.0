@@ -12,7 +12,7 @@ Use all available research capabilities - web search, content analysis, cross-re
 
 Professional Background
 
-Review his current role as a Software Engineering Intern at Clover Labs - what is he building, what responsibilities has he taken on, and how has leadership positioned him within the team?
+Review his current role as a Software Engineer at Clover Labs - what is he building, what responsibilities has he taken on, and how has leadership positioned him within the team?
 Search for any public mentions, press, or references to his work at Clover Labs or other organizations
 What does his work history reveal about his growth trajectory and the types of problems he gravitates toward?
 

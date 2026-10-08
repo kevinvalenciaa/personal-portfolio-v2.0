@@ -13,22 +13,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Quillio',
-    description: 'An AI journal that turns daily reflection into strategic insights for founders.',
-    image: '/SCR-20260117-mosl.jpeg',
-    status: 'Building',
-    tag: 'Coming Soon',
-    link: 'https://github.com/kevinvalenciaa/quillio',
-  },
-  {
-    title: 'PostOpCare',
-    description: 'Healthcare RAG system that delivers personalized post-surgery recovery guidance.',
-    image: '/SCR-20260117-mtlb.jpeg',
-    status: 'Building',
-    tag: 'Coming Soon',
-    link: 'https://github.com/kevinvalenciaa/postopcare-ai',
-  },
-  {
     title: 'Keylia AI',
     description: 'An automated AI content creation platform for real estate agents.',
     image: '/SCR-20260117-mnzo.png',
@@ -50,7 +34,7 @@ export default function Projects() {
   return (
     <section className="relative z-50 bg-background">
       <div className="relative p-3">
-        <h2 className="text-[1.125rem] font-semibold leading-[1.5] text-title select-none">What I'm building.</h2>
+        <h2 className="text-[1.125rem] font-semibold leading-[1.5] text-title select-none">What I'm Building.</h2>
       </div>
       <div className="dashed-separator"></div>
       <div className="relative p-3 pt-4">
